@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+  has_and_belongs_to_many :roles
 
-
-
-
+  def admin?
+    roles.detect{|d| d.name == 'admin'}
+  end
 end

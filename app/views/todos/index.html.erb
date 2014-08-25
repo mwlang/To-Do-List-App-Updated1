@@ -4,8 +4,10 @@
 <% @todos.each do |t| %>
 <p>
 	<strong><%= t.name %></strong>
-	<small><%= link_to "Mark as Done", todo_path(t, 'todo[done]' => true), :method => :put %></small>
-	<small><%= link_to "Edit", edit_todo_path(t), :method => :get %></small>
+	  <small><%= link_to "Mark as Done", todo_path(t, 'todo[done]' => true), :method => :put %></small>
+  <% if current_user.admin? %>
+	  <small><%= link_to "Edit", edit_todo_path(t), :method => :get %></small>
+	<% end %>
 
 </p>
 <% end %>

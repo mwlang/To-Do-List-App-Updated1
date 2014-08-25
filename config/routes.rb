@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :roles
+
   devise_for :users
 
   root :to => "home#index"

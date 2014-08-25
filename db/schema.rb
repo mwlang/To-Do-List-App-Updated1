@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823200043) do
+ActiveRecord::Schema.define(version: 20140825182136) do
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.boolean  "can_create", default: false
+    t.boolean  "can_read",   default: false
+    t.boolean  "can_update", default: false
+    t.boolean  "can_delete", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "todos", force: true do |t|
     t.string   "name"
