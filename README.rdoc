@@ -1,28 +1,9 @@
-== README
+Purpose:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+6. Add Multiple Roles to Your User to Create an ‘Admin’
+Goal: To set up multiple roles for each User in order to create an admin.
+Steps:
+ a. Add a an attribute of name(string) to your ‘user’ model.
+ b. Create a new model called ‘role’ and create an additional model called ‘user_role.’  The ‘user_role’ model will be the join table. Use a many to many association so that a user has many user_roles, and a role has many user_roles. The user_role model should belong to both user and role.  
+ c. Add a an attribute of admin(string) to your ‘role’ model.
+ d. Create a method to check if a user is an admin in your ‘user’ model. You can use a method called ‘def admin?’
